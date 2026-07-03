@@ -1,0 +1,560 @@
+L  [error opening dir]
+3  [error opening dir]
+./
+├── build_all.sh
+├── LICENSE
+├── logs
+├── mv_structure.txt
+├── projects
+│   ├── ShapeMatch
+│   │   ├── assets
+│   │   │   ├── generated
+│   │   │   │   ├── source_test_000.png
+│   │   │   │   └── template_test.png
+│   │   │   └── README.txt
+│   │   ├── build
+│   │   │   ├── assets
+│   │   │   │   ├── generated
+│   │   │   │   │   ├── source_test_000.png
+│   │   │   │   │   └── template_test.png
+│   │   │   │   └── README.txt
+│   │   │   ├── CMakeCache.txt
+│   │   │   ├── CMakeFiles
+│   │   │   │   ├── 3.22.1
+│   │   │   │   │   ├── CMakeCCompiler.cmake
+│   │   │   │   │   ├── CMakeCXXCompiler.cmake
+│   │   │   │   │   ├── CMakeDetermineCompilerABI_C.bin
+│   │   │   │   │   ├── CMakeDetermineCompilerABI_CXX.bin
+│   │   │   │   │   ├── CMakeSystem.cmake
+│   │   │   │   │   ├── CompilerIdC
+│   │   │   │   │   │   ├── a.out
+│   │   │   │   │   │   ├── CMakeCCompilerId.c
+│   │   │   │   │   │   └── tmp
+│   │   │   │   │   └── CompilerIdCXX
+│   │   │   │   │       ├── a.out
+│   │   │   │   │       ├── CMakeCXXCompilerId.cpp
+│   │   │   │   │       └── tmp
+│   │   │   │   ├── cmake.check_cache
+│   │   │   │   ├── CMakeDirectoryInformation.cmake
+│   │   │   │   ├── CMakeOutput.log
+│   │   │   │   ├── CMakeRuleHashes.txt
+│   │   │   │   ├── CMakeTmp
+│   │   │   │   ├── FindOpenMP
+│   │   │   │   │   ├── ompver_C.bin
+│   │   │   │   │   ├── ompver_CXX.bin
+│   │   │   │   │   ├── OpenMPCheckVersion.c
+│   │   │   │   │   ├── OpenMPCheckVersion.cpp
+│   │   │   │   │   ├── OpenMPTryFlag.c
+│   │   │   │   │   └── OpenMPTryFlag.cpp
+│   │   │   │   ├── Makefile2
+│   │   │   │   ├── Makefile.cmake
+│   │   │   │   ├── progress.marks
+│   │   │   │   ├── ShapeMatch_autogen.dir
+│   │   │   │   │   ├── AutogenInfo.json
+│   │   │   │   │   ├── AutogenUsed.txt
+│   │   │   │   │   ├── build.make
+│   │   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   │   ├── compiler_depend.make
+│   │   │   │   │   ├── compiler_depend.ts
+│   │   │   │   │   ├── DependInfo.cmake
+│   │   │   │   │   ├── ParseCache.txt
+│   │   │   │   │   └── progress.make
+│   │   │   │   ├── ShapeMatch.dir
+│   │   │   │   │   ├── build.make
+│   │   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   │   ├── compiler_depend.make
+│   │   │   │   │   ├── compiler_depend.ts
+│   │   │   │   │   ├── DependInfo.cmake
+│   │   │   │   │   ├── depend.make
+│   │   │   │   │   ├── flags.make
+│   │   │   │   │   ├── link.txt
+│   │   │   │   │   ├── progress.make
+│   │   │   │   │   ├── ShapeMatch_autogen
+│   │   │   │   │   │   ├── mocs_compilation.cpp.o
+│   │   │   │   │   │   └── mocs_compilation.cpp.o.d
+│   │   │   │   │   └── src
+│   │   │   │   │       ├── algorithm
+│   │   │   │   │       │   ├── ShapeMatch.cpp.o
+│   │   │   │   │       │   └── ShapeMatch.cpp.o.d
+│   │   │   │   │       ├── base
+│   │   │   │   │       │   ├── image_base.cpp.o
+│   │   │   │   │       │   └── image_base.cpp.o.d
+│   │   │   │   │       ├── ui
+│   │   │   │   │       │   ├── main.cpp.o
+│   │   │   │   │       │   ├── main.cpp.o.d
+│   │   │   │   │       │   ├── MainWindow.cpp.o
+│   │   │   │   │       │   └── MainWindow.cpp.o.d
+│   │   │   │   │       └── utils
+│   │   │   │   │           ├── cross_util.cpp.o
+│   │   │   │   │           └── cross_util.cpp.o.d
+│   │   │   │   └── TargetDirectories.txt
+│   │   │   ├── cmake_install.cmake
+│   │   │   ├── Makefile
+│   │   │   ├── ShapeMatch
+│   │   │   └── ShapeMatch_autogen
+│   │   │       ├── include
+│   │   │       ├── moc_predefs.h
+│   │   │       ├── mocs_compilation.cpp
+│   │   │       └── YPKJ5OE7LN
+│   │   │           ├── moc_MainWindow.cpp
+│   │   │           └── moc_MainWindow.cpp.d
+│   │   ├── CMakeLists.txt
+│   │   ├── run.sh
+│   │   ├── src
+│   │   │   ├── algorithm
+│   │   │   │   ├── ShapeMatch.cpp
+│   │   │   │   └── ShapeMatch.h
+│   │   │   ├── base
+│   │   │   │   ├── image_base.cpp
+│   │   │   │   └── image_base.h
+│   │   │   ├── ui
+│   │   │   │   ├── main.cpp
+│   │   │   │   ├── MainWindow.cpp
+│   │   │   │   └── MainWindow.h
+│   │   │   └── utils
+│   │   │       ├── cross_util.cpp
+│   │   │       └── cross_util.h
+│   │   └── third_party
+│   │       ├── stb_image.h
+│   │       ├── stb_image_resize2.h
+│   │       └── stb_image_write.h
+│   ├── Struct3DInspect
+│   │   ├── assets
+│   │   │   ├── capture
+│   │   │   ├── pattern
+│   │   │   ├── README.txt
+│   │   │   └── testdata
+│   │   │       └── generated
+│   │   │           └── group_000
+│   │   │               ├── cap_000.png
+│   │   │               ├── cap_001.png
+│   │   │               ├── cap_002.png
+│   │   │               ├── cap_003.png
+│   │   │               ├── cap_004.png
+│   │   │               ├── cap_005.png
+│   │   │               ├── cap_006.png
+│   │   │               ├── cap_007.png
+│   │   │               ├── cap_008.png
+│   │   │               ├── cap_009.png
+│   │   │               ├── cap_010.png
+│   │   │               ├── cap_011.png
+│   │   │               ├── cap_012.png
+│   │   │               ├── cap_013.png
+│   │   │               ├── cap_014.png
+│   │   │               ├── cap_015.png
+│   │   │               ├── cap_016.png
+│   │   │               ├── cap_017.png
+│   │   │               ├── cap_018.png
+│   │   │               ├── cap_019.png
+│   │   │               ├── cap_020.png
+│   │   │               └── cap_021.png
+│   │   ├── build
+│   │   │   ├── assets
+│   │   │   │   ├── capture
+│   │   │   │   ├── pattern
+│   │   │   │   ├── README.txt
+│   │   │   │   └── testdata
+│   │   │   │       └── generated
+│   │   │   │           └── group_000
+│   │   │   │               ├── cap_000.png
+│   │   │   │               ├── cap_001.png
+│   │   │   │               ├── cap_002.png
+│   │   │   │               ├── cap_003.png
+│   │   │   │               ├── cap_004.png
+│   │   │   │               ├── cap_005.png
+│   │   │   │               ├── cap_006.png
+│   │   │   │               ├── cap_007.png
+│   │   │   │               ├── cap_008.png
+│   │   │   │               ├── cap_009.png
+│   │   │   │               ├── cap_010.png
+│   │   │   │               ├── cap_011.png
+│   │   │   │               ├── cap_012.png
+│   │   │   │               ├── cap_013.png
+│   │   │   │               ├── cap_014.png
+│   │   │   │               ├── cap_015.png
+│   │   │   │               ├── cap_016.png
+│   │   │   │               ├── cap_017.png
+│   │   │   │               ├── cap_018.png
+│   │   │   │               ├── cap_019.png
+│   │   │   │               ├── cap_020.png
+│   │   │   │               └── cap_021.png
+│   │   │   ├── CMakeCache.txt
+│   │   │   ├── CMakeFiles
+│   │   │   │   ├── 3.22.1
+│   │   │   │   │   ├── CMakeCCompiler.cmake
+│   │   │   │   │   ├── CMakeCXXCompiler.cmake
+│   │   │   │   │   ├── CMakeDetermineCompilerABI_C.bin
+│   │   │   │   │   ├── CMakeDetermineCompilerABI_CXX.bin
+│   │   │   │   │   ├── CMakeSystem.cmake
+│   │   │   │   │   ├── CompilerIdC
+│   │   │   │   │   │   ├── a.out
+│   │   │   │   │   │   ├── CMakeCCompilerId.c
+│   │   │   │   │   │   └── tmp
+│   │   │   │   │   └── CompilerIdCXX
+│   │   │   │   │       ├── a.out
+│   │   │   │   │       ├── CMakeCXXCompilerId.cpp
+│   │   │   │   │       └── tmp
+│   │   │   │   ├── cmake.check_cache
+│   │   │   │   ├── CMakeDirectoryInformation.cmake
+│   │   │   │   ├── CMakeOutput.log
+│   │   │   │   ├── CMakeRuleHashes.txt
+│   │   │   │   ├── CMakeTmp
+│   │   │   │   ├── FindOpenMP
+│   │   │   │   │   ├── ompver_C.bin
+│   │   │   │   │   ├── ompver_CXX.bin
+│   │   │   │   │   ├── OpenMPCheckVersion.c
+│   │   │   │   │   ├── OpenMPCheckVersion.cpp
+│   │   │   │   │   ├── OpenMPTryFlag.c
+│   │   │   │   │   └── OpenMPTryFlag.cpp
+│   │   │   │   ├── Makefile2
+│   │   │   │   ├── Makefile.cmake
+│   │   │   │   ├── progress.marks
+│   │   │   │   ├── Struct3DInspect_autogen.dir
+│   │   │   │   │   ├── AutogenInfo.json
+│   │   │   │   │   ├── AutogenUsed.txt
+│   │   │   │   │   ├── build.make
+│   │   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   │   ├── compiler_depend.make
+│   │   │   │   │   ├── compiler_depend.ts
+│   │   │   │   │   ├── DependInfo.cmake
+│   │   │   │   │   ├── ParseCache.txt
+│   │   │   │   │   └── progress.make
+│   │   │   │   ├── Struct3DInspect.dir
+│   │   │   │   │   ├── build.make
+│   │   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   │   ├── compiler_depend.make
+│   │   │   │   │   ├── compiler_depend.ts
+│   │   │   │   │   ├── DependInfo.cmake
+│   │   │   │   │   ├── depend.make
+│   │   │   │   │   ├── flags.make
+│   │   │   │   │   ├── link.txt
+│   │   │   │   │   ├── progress.make
+│   │   │   │   │   ├── src
+│   │   │   │   │   │   ├── algorithm
+│   │   │   │   │   │   │   ├── GrayCodeGen.cpp.o
+│   │   │   │   │   │   │   ├── GrayCodeGen.cpp.o.d
+│   │   │   │   │   │   │   ├── MultiFreqUnwrap.cpp.o
+│   │   │   │   │   │   │   ├── MultiFreqUnwrap.cpp.o.d
+│   │   │   │   │   │   │   ├── PhaseShiftSolver.cpp.o
+│   │   │   │   │   │   │   └── PhaseShiftSolver.cpp.o.d
+│   │   │   │   │   │   ├── core
+│   │   │   │   │   │   │   ├── ImageBase.cpp.o
+│   │   │   │   │   │   │   ├── ImageBase.cpp.o.d
+│   │   │   │   │   │   │   ├── ImageProc.cpp.o
+│   │   │   │   │   │   │   ├── ImageProc.cpp.o.d
+│   │   │   │   │   │   │   ├── PointCloudFilter.cpp.o
+│   │   │   │   │   │   │   ├── PointCloudFilter.cpp.o.d
+│   │   │   │   │   │   │   ├── Triangulate.cpp.o
+│   │   │   │   │   │   │   └── Triangulate.cpp.o.d
+│   │   │   │   │   │   ├── io
+│   │   │   │   │   │   │   ├── CSVWriter.cpp.o
+│   │   │   │   │   │   │   ├── CSVWriter.cpp.o.d
+│   │   │   │   │   │   │   ├── PointCloudIO.cpp.o
+│   │   │   │   │   │   │   └── PointCloudIO.cpp.o.d
+│   │   │   │   │   │   └── ui
+│   │   │   │   │   │       ├── main.cpp.o
+│   │   │   │   │   │       ├── main.cpp.o.d
+│   │   │   │   │   │       ├── MainWindow.cpp.o
+│   │   │   │   │   │       └── MainWindow.cpp.o.d
+│   │   │   │   │   └── Struct3DInspect_autogen
+│   │   │   │   │       ├── mocs_compilation.cpp.o
+│   │   │   │   │       └── mocs_compilation.cpp.o.d
+│   │   │   │   └── TargetDirectories.txt
+│   │   │   ├── cmake_install.cmake
+│   │   │   ├── Makefile
+│   │   │   ├── Struct3DInspect
+│   │   │   └── Struct3DInspect_autogen
+│   │   │       ├── include
+│   │   │       ├── moc_predefs.h
+│   │   │       ├── mocs_compilation.cpp
+│   │   │       └── YPKJ5OE7LN
+│   │   │           ├── moc_MainWindow.cpp
+│   │   │           └── moc_MainWindow.cpp.d
+│   │   ├── CMakeLists.txt
+│   │   ├── LICENSE
+│   │   ├── README.md
+│   │   ├── run.sh
+│   │   ├── src
+│   │   │   ├── algorithm
+│   │   │   │   ├── GrayCodeGen.cpp
+│   │   │   │   ├── GrayCodeGen.h
+│   │   │   │   ├── MultiFreqUnwrap.cpp
+│   │   │   │   ├── MultiFreqUnwrap.h
+│   │   │   │   ├── PhaseShiftSolver.cpp
+│   │   │   │   └── PhaseShiftSolver.h
+│   │   │   ├── calib
+│   │   │   ├── core
+│   │   │   │   ├── ImageBase.cpp
+│   │   │   │   ├── ImageBase.h
+│   │   │   │   ├── ImageProc.cpp
+│   │   │   │   ├── ImageProc.h
+│   │   │   │   ├── PointCloudFilter.cpp
+│   │   │   │   ├── PointCloudFilter.h
+│   │   │   │   ├── StructParam.h
+│   │   │   │   ├── Triangulate.cpp
+│   │   │   │   └── Triangulate.h
+│   │   │   ├── io
+│   │   │   │   ├── CSVWriter.cpp
+│   │   │   │   ├── CSVWriter.h
+│   │   │   │   ├── PointCloudIO.cpp
+│   │   │   │   └── PointCloudIO.h
+│   │   │   └── ui
+│   │   │       ├── main.cpp
+│   │   │       ├── MainWindow.cpp
+│   │   │       └── MainWindow.h
+│   │   ├── test
+│   │   └── third_party
+│   │       ├── stb_image.h
+│   │       ├── stb_image_resize2.h
+│   │       └── stb_image_write.h
+│   ├── StructMeasure
+│   │   ├── assets
+│   │   │   ├── generated
+│   │   │   │   └── structure_test_000.png
+│   │   │   └── README.txt
+│   │   ├── build
+│   │   │   ├── assets
+│   │   │   │   ├── generated
+│   │   │   │   │   └── structure_test_000.png
+│   │   │   │   └── README.txt
+│   │   │   ├── CMakeCache.txt
+│   │   │   ├── CMakeFiles
+│   │   │   │   ├── 3.22.1
+│   │   │   │   │   ├── CMakeCCompiler.cmake
+│   │   │   │   │   ├── CMakeCXXCompiler.cmake
+│   │   │   │   │   ├── CMakeDetermineCompilerABI_C.bin
+│   │   │   │   │   ├── CMakeDetermineCompilerABI_CXX.bin
+│   │   │   │   │   ├── CMakeSystem.cmake
+│   │   │   │   │   ├── CompilerIdC
+│   │   │   │   │   │   ├── a.out
+│   │   │   │   │   │   ├── CMakeCCompilerId.c
+│   │   │   │   │   │   └── tmp
+│   │   │   │   │   └── CompilerIdCXX
+│   │   │   │   │       ├── a.out
+│   │   │   │   │       ├── CMakeCXXCompilerId.cpp
+│   │   │   │   │       └── tmp
+│   │   │   │   ├── cmake.check_cache
+│   │   │   │   ├── CMakeDirectoryInformation.cmake
+│   │   │   │   ├── CMakeOutput.log
+│   │   │   │   ├── CMakeRuleHashes.txt
+│   │   │   │   ├── CMakeTmp
+│   │   │   │   ├── Makefile2
+│   │   │   │   ├── Makefile.cmake
+│   │   │   │   ├── progress.marks
+│   │   │   │   ├── StructMeasure_autogen.dir
+│   │   │   │   │   ├── AutogenInfo.json
+│   │   │   │   │   ├── AutogenUsed.txt
+│   │   │   │   │   ├── build.make
+│   │   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   │   ├── compiler_depend.make
+│   │   │   │   │   ├── compiler_depend.ts
+│   │   │   │   │   ├── DependInfo.cmake
+│   │   │   │   │   ├── ParseCache.txt
+│   │   │   │   │   └── progress.make
+│   │   │   │   ├── StructMeasure.dir
+│   │   │   │   │   ├── build.make
+│   │   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   │   ├── compiler_depend.make
+│   │   │   │   │   ├── compiler_depend.ts
+│   │   │   │   │   ├── DependInfo.cmake
+│   │   │   │   │   ├── depend.make
+│   │   │   │   │   ├── flags.make
+│   │   │   │   │   ├── link.txt
+│   │   │   │   │   ├── progress.make
+│   │   │   │   │   ├── src
+│   │   │   │   │   │   ├── main.cpp.o
+│   │   │   │   │   │   ├── main.cpp.o.d
+│   │   │   │   │   │   ├── MainWindow.cpp.o
+│   │   │   │   │   │   ├── MainWindow.cpp.o.d
+│   │   │   │   │   │   ├── StructureMeasure.cpp.o
+│   │   │   │   │   │   └── StructureMeasure.cpp.o.d
+│   │   │   │   │   └── StructMeasure_autogen
+│   │   │   │   │       ├── mocs_compilation.cpp.o
+│   │   │   │   │       └── mocs_compilation.cpp.o.d
+│   │   │   │   └── TargetDirectories.txt
+│   │   │   ├── cmake_install.cmake
+│   │   │   ├── Makefile
+│   │   │   ├── StructMeasure
+│   │   │   └── StructMeasure_autogen
+│   │   │       ├── include
+│   │   │       ├── moc_predefs.h
+│   │   │       ├── mocs_compilation.cpp
+│   │   │       └── UVLADIE3JM
+│   │   │           ├── moc_MainWindow.cpp
+│   │   │           └── moc_MainWindow.cpp.d
+│   │   ├── CMakeLists.txt
+│   │   ├── LICENSE
+│   │   ├── README.md
+│   │   ├── run.sh
+│   │   ├── src
+│   │   │   ├── main.cpp
+│   │   │   ├── MainWindow.cpp
+│   │   │   ├── MainWindow.h
+│   │   │   ├── StructureMeasure.cpp
+│   │   │   └── StructureMeasure.h
+│   │   └── third_party
+│   │       ├── stb_image.h
+│   │       ├── stb_image_resize2.h
+│   │       └── stb_image_write.h
+│   └── VisionInspect
+│       ├── assets
+│       │   ├── chessboard_target_000.png
+│       │   └── README.txt
+│       ├── build
+│       │   ├── assets
+│       │   │   ├── chessboard_target_000.png
+│       │   │   └── README.txt
+│       │   ├── CMakeCache.txt
+│       │   ├── CMakeFiles
+│       │   │   ├── 3.22.1
+│       │   │   │   ├── CMakeCCompiler.cmake
+│       │   │   │   ├── CMakeCXXCompiler.cmake
+│       │   │   │   ├── CMakeDetermineCompilerABI_C.bin
+│       │   │   │   ├── CMakeDetermineCompilerABI_CXX.bin
+│       │   │   │   ├── CMakeSystem.cmake
+│       │   │   │   ├── CompilerIdC
+│       │   │   │   │   ├── a.out
+│       │   │   │   │   ├── CMakeCCompilerId.c
+│       │   │   │   │   └── tmp
+│       │   │   │   └── CompilerIdCXX
+│       │   │   │       ├── a.out
+│       │   │   │       ├── CMakeCXXCompilerId.cpp
+│       │   │   │       └── tmp
+│       │   │   ├── cmake.check_cache
+│       │   │   ├── CMakeDirectoryInformation.cmake
+│       │   │   ├── CMakeOutput.log
+│       │   │   ├── CMakeRuleHashes.txt
+│       │   │   ├── CMakeTmp
+│       │   │   ├── FindOpenMP
+│       │   │   │   ├── ompver_C.bin
+│       │   │   │   ├── ompver_CXX.bin
+│       │   │   │   ├── OpenMPCheckVersion.c
+│       │   │   │   ├── OpenMPCheckVersion.cpp
+│       │   │   │   ├── OpenMPTryFlag.c
+│       │   │   │   └── OpenMPTryFlag.cpp
+│       │   │   ├── Makefile2
+│       │   │   ├── Makefile.cmake
+│       │   │   ├── progress.marks
+│       │   │   ├── TargetDirectories.txt
+│       │   │   ├── VisionInspect_autogen.dir
+│       │   │   │   ├── AutogenInfo.json
+│       │   │   │   ├── AutogenUsed.txt
+│       │   │   │   ├── build.make
+│       │   │   │   ├── cmake_clean.cmake
+│       │   │   │   ├── compiler_depend.make
+│       │   │   │   ├── compiler_depend.ts
+│       │   │   │   ├── DependInfo.cmake
+│       │   │   │   ├── ParseCache.txt
+│       │   │   │   └── progress.make
+│       │   │   └── VisionInspect.dir
+│       │   │       ├── build.make
+│       │   │       ├── cmake_clean.cmake
+│       │   │       ├── compiler_depend.make
+│       │   │       ├── compiler_depend.ts
+│       │   │       ├── DependInfo.cmake
+│       │   │       ├── depend.make
+│       │   │       ├── flags.make
+│       │   │       ├── link.txt
+│       │   │       ├── progress.make
+│       │   │       ├── src
+│       │   │       │   ├── algorithm
+│       │   │       │   │   ├── DefectDetect2D.cpp.o
+│       │   │       │   │   ├── DefectDetect2D.cpp.o.d
+│       │   │       │   │   ├── Detect3D.cpp.o
+│       │   │       │   │   ├── Detect3D.cpp.o.d
+│       │   │       │   │   ├── FeatureDetect.cpp.o
+│       │   │       │   │   ├── FeatureDetect.cpp.o.d
+│       │   │       │   │   ├── Measure2D.cpp.o
+│       │   │       │   │   └── Measure2D.cpp.o.d
+│       │   │       │   ├── calibration
+│       │   │       │   │   ├── CameraCalib.cpp.o
+│       │   │       │   │   ├── CameraCalib.cpp.o.d
+│       │   │       │   │   ├── HandEyeCalib.cpp.o
+│       │   │       │   │   ├── HandEyeCalib.cpp.o.d
+│       │   │       │   │   ├── StereoCalib.cpp.o
+│       │   │       │   │   └── StereoCalib.cpp.o.d
+│       │   │       │   ├── core
+│       │   │       │   │   ├── ImageBase.cpp.o
+│       │   │       │   │   ├── ImageBase.cpp.o.d
+│       │   │       │   │   ├── Matrix.cpp.o
+│       │   │       │   │   ├── Matrix.cpp.o.d
+│       │   │       │   │   ├── Timer.cpp.o
+│       │   │       │   │   └── Timer.cpp.o.d
+│       │   │       │   ├── io
+│       │   │       │   │   ├── CSVWriter.cpp.o
+│       │   │       │   │   ├── CSVWriter.cpp.o.d
+│       │   │       │   │   ├── JsonIO.cpp.o
+│       │   │       │   │   ├── JsonIO.cpp.o.d
+│       │   │       │   │   ├── PLYWriter.cpp.o
+│       │   │       │   │   └── PLYWriter.cpp.o.d
+│       │   │       │   └── ui
+│       │   │       │       ├── main.cpp.o
+│       │   │       │       ├── main.cpp.o.d
+│       │   │       │       ├── MainWindow.cpp.o
+│       │   │       │       └── MainWindow.cpp.o.d
+│       │   │       └── VisionInspect_autogen
+│       │   │           ├── mocs_compilation.cpp.o
+│       │   │           └── mocs_compilation.cpp.o.d
+│       │   ├── cmake_install.cmake
+│       │   ├── Makefile
+│       │   ├── VisionInspect
+│       │   └── VisionInspect_autogen
+│       │       ├── include
+│       │       ├── moc_predefs.h
+│       │       ├── mocs_compilation.cpp
+│       │       └── YPKJ5OE7LN
+│       │           ├── moc_MainWindow.cpp
+│       │           └── moc_MainWindow.cpp.d
+│       ├── CMakeLists.txt
+│       ├── LICENSE
+│       ├── README.md
+│       ├── run.sh
+│       ├── src
+│       │   ├── algorithm
+│       │   │   ├── DefectDetect2D.cpp
+│       │   │   ├── DefectDetect2D.h
+│       │   │   ├── Detect3D.cpp
+│       │   │   ├── Detect3D.h
+│       │   │   ├── FeatureDetect.cpp
+│       │   │   ├── FeatureDetect.h
+│       │   │   ├── Measure2D.cpp
+│       │   │   └── Measure2D.h
+│       │   ├── calibration
+│       │   │   ├── CameraCalib.cpp
+│       │   │   ├── CameraCalib.h
+│       │   │   ├── HandEyeCalib.cpp
+│       │   │   ├── HandEyeCalib.h
+│       │   │   ├── StereoCalib.cpp
+│       │   │   └── StereoCalib.h
+│       │   ├── core
+│       │   │   ├── ImageBase.cpp
+│       │   │   ├── ImageBase.h
+│       │   │   ├── Matrix.cpp
+│       │   │   ├── Matrix.h
+│       │   │   ├── Timer.cpp
+│       │   │   └── Timer.h
+│       │   ├── io
+│       │   │   ├── CSVWriter.cpp
+│       │   │   ├── CSVWriter.h
+│       │   │   ├── JsonIO.cpp
+│       │   │   ├── JsonIO.h
+│       │   │   ├── PLYWriter.cpp
+│       │   │   └── PLYWriter.h
+│       │   └── ui
+│       │       ├── main.cpp
+│       │       ├── MainWindow.cpp
+│       │       └── MainWindow.h
+│       ├── test
+│       └── third_party
+│           ├── stb_image.h
+│           ├── stb_image_resize2.h
+│           └── stb_image_write.h
+├── push_all.sh
+├── README.md
+├── testdata
+└── third_party
+    ├── stb_image.h
+    ├── stb_image_resize2.h
+    └── stb_image_write.h
+
+130 directories, 425 files

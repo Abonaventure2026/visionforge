@@ -1,0 +1,75 @@
+
+Build directories
+build/
+cmake-build-*/
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+*.out
+
+Qt generated files
+*.moc
+.moc.cpp
+moc_*.cpp
+*.ui.h
+*.qrc.cpp
+*.qmlcache.cpp
+
+IDE
+.vscode/
+.idea/
+*.swp
+*~
+*.user
+*.user.*
+.DS_Store
+Thumbs.db
+
+Logs and temp
+logs/
+*.log
+*.tmp
+test_output/
+*.cache
+
+Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+
+Generated test data
+projects/*/assets/generated/*.png
+projects/*/assets/capture/*.png
+
+CMake
+CMakeUserPresets.json
+CMakePresets.json
+
+vcpkg
+
+# Scripts and test data (not for push)
+scripts/
+testdata/
+*.bak
+*.backup
+vcpkg_installed/
+
+# Scripts and test data (not for push)
+scripts/
+testdata/
+*.bak
+*.backup
+vcpkg-manifest-install.log
+
+# Scripts and test data (not for push)
+scripts/
+testdata/
+*.bak
+*.backup
