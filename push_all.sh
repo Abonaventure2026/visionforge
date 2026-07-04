@@ -2,19 +2,26 @@
 # ============================================================================
 # push_all.sh - 选择性推送指定文件和目录到远程仓库
 #
-# 位置：项目根目录 /visionforge/
+# 位置：项目根目录 /machinevision_vs/
 # 版本: 2.4
-# 日期: 2026-07-03
+# 日期: 2026-07-04
 # 作者: Yongji Gao
 # 邮箱: bonaventure@163.com
 #
 # 推送内容：
-#   - projects/        # 所有子工程
-#   - third_party/     # 第三方库
-#   - build_all.sh     # 构建脚本
-#   - LICENSE          # 许可证
-#   - README.md        # 项目说明
-#   - .gitignore       # Git忽略规则
+#   - projects/HalconVision/   # Halcon视觉工程
+#   - projects/Struct3DInspect/ # 3D结构光工程
+#   - projects/ShapeMatch/     # 形状匹配工程
+#   - projects/StructMeasure/  # 结构测量工程
+#   - projects/VisionInspect/  # 全场景视觉工程
+#   - third_party/             # 第三方库
+#   - build_all.sh             # 构建脚本
+#   - generate_all.sh          # 生成脚本
+#   - push_all.sh              # 推送脚本
+#   - clean_all.sh             # 清理脚本
+#   - LICENSE                  # 许可证
+#   - README.md                # 项目说明
+#   - .gitignore               # Git忽略规则
 #
 # 用法：
 #   ./push_all.sh                      # 推送到 Gitee
@@ -69,9 +76,17 @@ REMOTE_URLS["origin"]="git@gitee.com:abonaventure/visionforge.git"
 # 需要推送的文件和目录（白名单）
 # ============================================================================
 PUSH_ITEMS=(
-    "projects/"
+    "projects/HalconVision/"
+    "projects/Struct3DInspect/"
+    "projects/ShapeMatch/"
+    "projects/StructMeasure/"
+    "projects/VisionInspect/"
     "third_party/"
+    "scripts/"
     "build_all.sh"
+    "generate_all.sh"
+    "push_all.sh"
+    "clean_all.sh"
     "LICENSE"
     "README.md"
     ".gitignore"
@@ -85,12 +100,20 @@ show_help() {
 用法: ./push_all.sh [选项]
 
 推送内容:
-  projects/      所有子工程
-  third_party/   第三方库
-  build_all.sh   构建脚本
-  LICENSE        许可证
-  README.md      项目说明
-  .gitignore     Git忽略规则
+  projects/HalconVision/   跨平台Halcon视觉工程
+  projects/Struct3DInspect/ 3D结构光检测工程
+  projects/ShapeMatch/     形状匹配工程
+  projects/StructMeasure/  结构件测量工程
+  projects/VisionInspect/  工业视觉全场景工程
+  third_party/             第三方库
+  scripts/                 自动化脚本
+  build_all.sh             构建脚本
+  generate_all.sh          生成脚本
+  push_all.sh              推送脚本
+  clean_all.sh             清理脚本
+  LICENSE                  许可证
+  README.md                项目说明
+  .gitignore               Git忽略规则
 
 选项:
   --remote, -r NAME    远程仓库名称 (gitee|github|origin，默认: gitee)
@@ -104,6 +127,7 @@ show_help() {
   ./push_all.sh --remote github         # 推送到 GitHub
   ./push_all.sh --force                 # 强制推送
   ./push_all.sh --dry-run               # 预览模式
+  ./push_all.sh --message "feat: add HalconVision"  # 自定义提交信息
 
 远程仓库:
   Gitee:  git@gitee.com:abonaventure/visionforge.git
@@ -237,7 +261,7 @@ commit_changes() {
     fi
 
     if [ -z "$COMMIT_MESSAGE" ]; then
-        COMMIT_MSG="chore: update projects, third_party and root docs at $(date '+%Y-%m-%d %H:%M:%S')"
+        COMMIT_MSG="chore: update projects, third_party and scripts at $(date '+%Y-%m-%d %H:%M:%S')"
     else
         COMMIT_MSG="$COMMIT_MESSAGE"
     fi
@@ -331,6 +355,32 @@ sync_second_remote() {
 }
 
 # ============================================================================
+# 检查子工程是否可推送（存在且非空）
+# ============================================================================
+check_subprojects() {
+    print_step "检查子工程..."
+    local missing=()
+    local subprojects=("projects/HalconVision" "projects/Struct3DInspect" "projects/ShapeMatch" "projects/StructMeasure" "projects/VisionInspect")
+    for sp in "${subprojects[@]}"; do
+        if [ ! -d "$sp" ]; then
+            missing+=("$sp")
+        elif [ -z "$(ls -A "$sp" 2>/dev/null)" ]; then
+            print_warn "  ⚠️ $sp 为空目录"
+        else
+            print_info "  ✅ $sp 存在"
+        fi
+    done
+    if [ ${#missing[@]} -gt 0 ]; then
+        print_warn "以下工程目录不存在，请先运行 ./generate_all.sh:"
+        for m in "${missing[@]}"; do
+            echo "  ❌ $m"
+        done
+        return 1
+    fi
+    return 0
+}
+
+# ============================================================================
 # 主流程
 # ============================================================================
 print_section "VisionForge 选择性推送工具 v2.4"
@@ -342,8 +392,17 @@ print_info "预览模式: $([ "$DRY_RUN" = true ] && echo "是" || echo "否")"
 echo ""
 print_info "推送内容:"
 for item in "${PUSH_ITEMS[@]}"; do
-    echo "  ✅ $item"
+    if [[ -e "$item" ]] || [[ "$item" == */ ]]; then
+        echo "  ✅ $item"
+    else
+        echo "  ⚠️ $item (不存在)"
+    fi
 done
+
+# ============================================================================
+# 0. 检查子工程
+# ============================================================================
+check_subprojects
 
 # ============================================================================
 # 1. 生成根目录文档
@@ -409,7 +468,7 @@ else
     echo ""
     print_info "已推送内容:"
     for item in "${PUSH_ITEMS[@]}"; do
-        if [[ -e "$item" ]]; then
+        if [[ -e "$item" ]] || [[ "$item" == */ && -d "${item%/}" ]]; then
             echo "  ✅ $item"
         fi
     done

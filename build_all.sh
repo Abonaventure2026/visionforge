@@ -4,7 +4,7 @@
 #
 # 位置：项目根目录 /machinevision_vs/
 # 版本: 2.4
-# 日期: 2026-07-03
+# 日期: 2026-07-04
 #
 # 用法：
 #   ./build_all.sh                      # 编译所有工程
@@ -12,6 +12,8 @@
 #   ./build_all.sh --project NAME       # 仅编译指定工程
 #   ./build_all.sh --verbose            # 显示详细输出
 #   ./build_all.sh --help               # 显示帮助
+#
+# 可用工程: HalconVision, Struct3DInspect, ShapeMatch, StructMeasure, VisionInspect
 # ============================================================================
 
 set -e
@@ -43,6 +45,7 @@ CLEAN_MODE=false
 VERBOSE=false
 SPECIFIC_PROJECT=""
 MAKE_JOBS=$(nproc 2>/dev/null || echo 4)
+BUILD_TYPE="Release"
 
 # ============================================================================
 # 解析参数
@@ -51,17 +54,20 @@ while [[ $# -gt 0 ]]; do
     case $1 in
         --clean|-c) CLEAN_MODE=true; shift ;;
         --verbose|-v) VERBOSE=true; shift ;;
+        --debug|-d) BUILD_TYPE="Debug"; shift ;;
         --project|-p) SPECIFIC_PROJECT="$2"; shift 2 ;;
         --help|-h)
             echo "用法: $0 [选项]"
             echo ""
             echo "选项:"
             echo "  --clean, -c        清理后重新编译"
+            echo "  --debug, -d        编译Debug版本（默认Release）"
             echo "  --verbose, -v      显示详细输出"
             echo "  --project, -p NAME 仅编译指定工程"
             echo "  --help, -h         显示帮助"
             echo ""
             echo "可用工程:"
+            echo "  HalconVision       - 跨平台Halcon视觉工程"
             echo "  Struct3DInspect    - 3D结构光检测"
             echo "  ShapeMatch         - 形状匹配"
             echo "  StructMeasure      - 结构件测量"
@@ -70,7 +76,7 @@ while [[ $# -gt 0 ]]; do
             echo "示例:"
             echo "  ./build_all.sh                        # 编译所有工程"
             echo "  ./build_all.sh --clean                # 清理后重新编译"
-            echo "  ./build_all.sh --project ShapeMatch   # 仅编译形状匹配"
+            echo "  ./build_all.sh --project HalconVision # 仅编译HalconVision"
             echo "  ./build_all.sh --verbose              # 显示详细输出"
             exit 0
             ;;
@@ -92,11 +98,38 @@ check_command() {
 print_section "一键编译工业视觉检测工程"
 print_info "工作目录: $BASE_DIR"
 print_info "CPU核心数: $MAKE_JOBS"
+print_info "构建类型: $BUILD_TYPE"
 print_info "清理模式: $([ "$CLEAN_MODE" = true ] && echo "是" || echo "否")"
 print_info "详细输出: $([ "$VERBOSE" = true ] && echo "是" || echo "否")"
 
 check_command cmake || exit 1
 check_command make || exit 1
+
+# ============================================================================
+# 检查Halcon依赖（针对HalconVision）
+# ============================================================================
+check_halcon_deps() {
+    local proj_dir="$1"
+    if [ -f "$proj_dir/CMakeLists.txt" ] && grep -q "USE_HALCON" "$proj_dir/CMakeLists.txt"; then
+        print_info "检查Halcon依赖..."
+        if [ ! -d "$proj_dir/third_party/halcon_win" ] && [ ! -d "$proj_dir/third_party/halcon_linux" ]; then
+            print_warn "Halcon依赖未找到，编译可能失败"
+            print_warn "请将Halcon库放入 third_party/halcon_win/ 或 third_party/halcon_linux/"
+            return 1
+        fi
+        # 检查Linux环境变量
+        if [ "$(uname)" = "Linux" ]; then
+            if [ -z "$HALCONROOT" ]; then
+                export HALCONROOT="$proj_dir/third_party/halcon_linux"
+                export HALCONARCH="x64-linux"
+                export LD_LIBRARY_PATH="$HALCONROOT/lib/$HALCONARCH:$LD_LIBRARY_PATH"
+                print_info "设置 HALCONROOT=$HALCONROOT"
+            fi
+        fi
+        return 0
+    fi
+    return 0
+}
 
 # ============================================================================
 # 编译单个工程
@@ -110,22 +143,47 @@ build_project() {
         return 1
     fi
 
+    if [ ! -f "$proj_dir/CMakeLists.txt" ]; then
+        print_warn "跳过 $proj_name: 缺少 CMakeLists.txt"
+        return 1
+    fi
+
     print_section "编译: $proj_name"
+
+    # 检查Halcon依赖
+    check_halcon_deps "$proj_dir"
+
     cd "$proj_dir"
 
-    if [ "$CLEAN_MODE" = true ] || [ -d "build" ]; then
+    if [ "$CLEAN_MODE" = true ]; then
         print_step "清理构建目录..."
         rm -rf build
     fi
 
-    print_step "创建构建目录..."
-    mkdir -p build && cd build
-
-    print_step "配置CMake..."
-    if [ "$VERBOSE" = true ]; then
-        cmake .. || { print_error "CMake配置失败"; return 1; }
+    if [ -d "build" ] && [ "$CLEAN_MODE" = false ]; then
+        print_step "使用已有构建目录"
     else
-        cmake .. > /dev/null 2>&1 || { print_error "CMake配置失败"; return 1; }
+        print_step "创建构建目录..."
+        mkdir -p build
+    fi
+
+    cd build
+
+    print_step "配置CMake (${BUILD_TYPE})..."
+    CMAKE_ARGS="-DCMAKE_BUILD_TYPE=${BUILD_TYPE}"
+
+    # 针对HalconVision的特殊配置
+    if [ "$proj_name" = "HalconVision" ]; then
+        CMAKE_ARGS="$CMAKE_ARGS -DUSE_HALCON=ON -DBUILD_UI=ON"
+        if [ "$(uname)" = "Linux" ]; then
+            CMAKE_ARGS="$CMAKE_ARGS -DCMAKE_PREFIX_PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt6"
+        fi
+    fi
+
+    if [ "$VERBOSE" = true ]; then
+        cmake .. $CMAKE_ARGS || { print_error "CMake配置失败"; return 1; }
+    else
+        cmake .. $CMAKE_ARGS > /dev/null 2>&1 || { print_error "CMake配置失败"; return 1; }
     fi
 
     print_step "编译中 (使用 $MAKE_JOBS 线程)..."
@@ -135,7 +193,7 @@ build_project() {
         make -j"$MAKE_JOBS" > /dev/null 2>&1 || { print_error "编译失败"; return 1; }
     fi
 
-    print_success "$proj_name 编译完成"
+    print_success "$proj_name 编译完成 (${BUILD_TYPE})"
     print_info "运行: cd $proj_dir && ./run.sh"
     return 0
 }
@@ -147,6 +205,7 @@ if [ -n "$SPECIFIC_PROJECT" ]; then
     PROJECTS=("$SPECIFIC_PROJECT")
 else
     PROJECTS=(
+        "HalconVision"
         "Struct3DInspect"
         "ShapeMatch"
         "StructMeasure"
@@ -172,6 +231,14 @@ done
 print_section "编译总结"
 if [ ${#FAILED[@]} -eq 0 ]; then
     print_success "🎉 所有工程编译成功！ ($SUCCESS_COUNT/$TOTAL_COUNT)"
+    echo ""
+    print_info "运行命令:"
+    for proj in "${PROJECTS[@]}"; do
+        echo "  cd projects/$proj && ./run.sh"
+        if [ "$proj" = "HalconVision" ]; then
+            echo "  cd projects/$proj && ./run.sh --console --ocr <image>"
+        fi
+    done
 else
     print_error "❌ 以下工程编译失败: ${FAILED[*]}"
     print_info "成功: $SUCCESS_COUNT/$TOTAL_COUNT"
